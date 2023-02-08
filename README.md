@@ -8,3 +8,4 @@ just like reader ebook app functional
 
 - can't
   - store in the local storage
+  - add anotation in highlight text
