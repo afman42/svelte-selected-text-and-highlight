@@ -10,3 +10,4 @@ just like reader ebook app functional
 
 - can't
   - add anotation in highlight text
+  - double same text just replace one text
