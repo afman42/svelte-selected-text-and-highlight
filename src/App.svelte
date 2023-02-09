@@ -5,7 +5,6 @@ let openSelectText = false;
 let setObjectText = "";
 let warnSelection = false;
 let collectTextHTML = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
-let ref;
 
 onMount(() => {
   document.addEventListener('selectionchange',() => {
@@ -52,13 +51,12 @@ function selectionSlice(color){
         $sNode.onclick = function(e){
           e.preventDefault();
           if(e.target.outerHTML.includes(e.target.dataset.textz)){
+            
             setObjectText = e.target.dataset.textz;
           }
         }
         $sNode.ondblclick = function(e){
           e.preventDefault();
-          //console.log(e);
-
           if(e.target.outerHTML.includes(e.target.dataset.textz)){
             $sNode.innerHTML = $sNode.innerHTML.replace(e.target.outerHTML,e.target.innerText);
             setObjectText = "";
@@ -79,7 +77,7 @@ function selectionSlice(color){
     <button type="button" on:click={() => selectionSlice('blue')}>blue</button>
     <button type="button" on:click={() => selectionSlice('red')}>red</button>
   </div>
-  <div bind:this={ref} class="collectDiv">{@html collectTextHTML}</div>
+  <div>{@html collectTextHTML}</div>
   {#if setObjectText != ""}
     <div class="openSelectText">
       <div>#{setObjectText}</div>
