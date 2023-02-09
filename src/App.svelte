@@ -59,6 +59,7 @@ function selectionSlice(color){
           e.preventDefault();
           if(e.target.outerHTML.includes(e.target.dataset.textz)){
             $sNode.innerHTML = $sNode.innerHTML.replace(e.target.outerHTML,e.target.innerText);
+            localStorage.setItem('collectTextHTML',$sNode.innerHTML);
             setObjectText = "";
           }
         }
