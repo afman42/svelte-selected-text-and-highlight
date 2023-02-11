@@ -1,4 +1,4 @@
-# Example Selected Text And Anotation
+# Example Selected Text And Note
 
 just like reader ebook app functional
 
@@ -7,7 +7,7 @@ just like reader ebook app functional
   - click text color and show
   - after hightlight can remove double click
   - store in the local storage
+  - add note in highlight text
 
 - can't
-  - add anotation in highlight text
   - double same text just replace one text
