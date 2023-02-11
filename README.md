@@ -11,3 +11,4 @@ just like reader ebook app functional
 
 - can't
   - double same text just replace one text
+  - selection absurd see tab console

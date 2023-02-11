@@ -30,7 +30,7 @@ onMount(() => {
             localStorage.setItem('collectTextHTML',repText)
             tempCollectText = tempCollectText.filter(item => item.selection != e.target.dataset.textz)
             collectText = tempCollectText
-            console.log(tempCollectText);
+            //console.log(tempCollectText);
             localStorage.setItem('collectHTML',JSON.stringify(collectText));
             collectTextHTML = repText
             setObjectText = "";
@@ -46,6 +46,7 @@ onMount(() => {
 
 function selectionSlice(color){
     let text = "" 
+    console.log(selection)
     if(selection?.anchorOffset != 0 && selection?.focusOffset != 0){
       for (var i = 0; i < selection.rangeCount; i++) {
           text = `${color} ${selection}`;
