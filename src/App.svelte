@@ -19,12 +19,6 @@ onMount(() => {
       spanAll.forEach(v => {
         v.addEventListener('click', (e) => {
           if(e.target.outerHTML.includes(e.target.dataset.textz)){
-            let checkCollectText = collectText.map(item => item.selection).includes(e.target.dataset.textz);
-            if(checkCollectText){
-              return;
-            }
-            collectText = [...collectText,{ selection: e.target.dataset.textz, input: "" }];
-            localStorage.setItem('collectHTML',JSON.stringify(collectText));
             setObjectText = e.target.dataset.textz;
           }
         })
@@ -60,15 +54,16 @@ function selectionSlice(color){
           //var $eNode = selection.getRangeAt(i).endContainer.parentNode;
           $sNode.innerHTML = $sNode.innerHTML.replace(selection,selectionText);
           localStorage.setItem('collectTextHTML',$sNode.innerHTML);
+
+          let checkCollectText = collectText.map(item => item.selection).includes(text);
+          if(checkCollectText){
+            return;
+          }
+          collectText = [...collectText,{ selection: text, input: "" }];
+          localStorage.setItem('collectHTML',JSON.stringify(collectText));
           $sNode.onclick = function(e){
             e.preventDefault();
             if(e.target.outerHTML.includes(e.target.dataset.textz)){
-              let checkCollectText = collectText.map(item => item.selection).includes(e.target.dataset.textz);
-              if(checkCollectText){
-                return;
-              }
-              collectText = [...collectText,{ selection: e.target.dataset.textz, input: "" }];
-              localStorage.setItem('collectHTML',JSON.stringify(collectText));
               setObjectText = e.target.dataset.textz;
             }
           }
@@ -125,7 +120,7 @@ $: readInputValue = collectText.find((item) => item.selection === setObjectText)
     <div class="openSelectText">
       <div>
           #{setObjectText},
-          {#if readInputValue. input != ""}
+          {#if readInputValue.input != ""}
             Note: {readInputValue.input}
           {/if}
       </div>
